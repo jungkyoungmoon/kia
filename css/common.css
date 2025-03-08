@@ -6,13 +6,17 @@
 }
 
 :root {
-  --vh: 100%;
+  --app-height: 100%;
 }
 
 html,
 body {
-   height: 100vh;
-   height: var(--vh);
+   padding: 0;
+   margin: 0;
+   overflow: hidden;
+   width: 100vw;
+   height: 100vh !important;
+   height: var(--app-height);
 }
 
 body {
@@ -106,6 +110,11 @@ button{
   clear: both;
 }
 
+.main {
+  /* position: fixed; */
+  overflow: hidden;
+}
+
 .container { 
   display: none;
   background-color: #e6e6e6;
@@ -114,7 +123,7 @@ button{
 .contInner {
   width: 768px;
   margin: 0 auto;
-  min-height: 1700px;
+  /* min-height: 1700px; */
   padding: 113px 97px 108px;
   position: relative;
   margin-left: auto;
@@ -269,10 +278,11 @@ button{
 @media screen and (max-width: 768px) {
   .contInner {
     width: 100%;
-    min-height: 1000px;
+    min-height: 800px;
     margin: 0 auto;
-    padding: 100px 20px 100px;
+    padding: 70px 20px 70px;
   }
+
   .contInner h1 {
     font-size: 1.2rem;
   }
@@ -293,7 +303,7 @@ button{
     font-size: 3rem;
     border-radius: 20px;
     font-weight: 700;
-    margin-top: -150px;
+    margin-top: 0;
   }
 
   .bt_logo img {
@@ -311,16 +321,13 @@ button{
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    margin-top: -150px;
+    margin-top: 0;
   }
 
   .progress-container {
     height: 28px;
   }
 
-  .progress-container {
-    margin-top: 50px;
-  }
 
   .card-container {
     gap: 20px;
@@ -343,7 +350,7 @@ button{
     box-sizing: border-box;
   }
 
-  .contTit {
+  #step2-2 .contTit {
     margin-top: 50px;
   }
 }

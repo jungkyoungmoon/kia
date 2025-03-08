@@ -22,52 +22,53 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-  <!-- 0. 표지 -->
-    <div id="cover" class="container visible">
-        <div class="contInner">
-            <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
+    <div class="main">
+        <!-- 0. 표지 -->
+        <div id="cover" class="container visible">
+            <div class="contInner">
+                <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
+                <div class="contTit">
+                    <p>기아 최초의 전동화 세단</p>
+                    <h2>The Kia EV4를<br>찾아주세요</h2>
+                </div>
+                <button id="startButton">시작하기</button>
+                <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+            </div>
+        </div>
+
+        <!-- 2-1. 2단계 도입부 -->
+        <div id="step2-1" class="container">
+            <div class="contInner">
+                <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
+                <div class="contTit">
+                    <p>2단계</p>
+                    <h2>EV4 그림을<br>찾아주세요</h2>
+                </div>
+                <h1 id="timer">3</h1>
+                <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+            </div>
+        </div>
+
+        <!-- 2-2. 2단계 문제 -->
+        <div id="step2-2" class="container">
+            <div class="contInner">
+                <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
             <div class="contTit">
-                <p>기아 최초의 전동화 세단</p>
-                <h2>The Kia EV4를<br>찾아주세요</h2>
+
             </div>
-            <button id="startButton">시작하기</button>
-            <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress"></div>
+                </div>
+                <div class="card-container">
+                    <div class="card" data-correct="false"><img src="images/step2_img1.png"></div>
+                    <div class="card true_img" data-correct="true">EV4<br>이미지</div>
+                    <div class="card" data-correct="false"><img src="images/step2_img2.png"></div>
+                    <div class="card" data-correct="false"><img src="images/step2_img3.png"></div>
+                </div>
+                <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+            </div>
         </div>
     </div>
-
-    <!-- 2-1. 2단계 도입부 -->
-    <div id="step2-1" class="container">
-        <div class="contInner">
-            <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
-            <div class="contTit">
-                <p>2단계</p>
-                <h2>EV4 그림을<br>찾아주세요</h2>
-            </div>
-            <h1 id="timer">3</h1>
-            <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
-        </div>
-    </div>
-
-    <!-- 2-2. 2단계 문제 -->
-    <div id="step2-2" class="container">
-        <div class="contInner">
-            <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
-        <div class="contTit">
-
-        </div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progress"></div>
-            </div>
-            <div class="card-container">
-                <div class="card" data-correct="false"><img src="images/step2_img1.png"></div>
-                <div class="card true_img" data-correct="true">EV4<br>이미지</div>
-                <div class="card" data-correct="false"><img src="images/step2_img2.png"></div>
-                <div class="card" data-correct="false"><img src="images/step2_img3.png"></div>
-            </div>
-            <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
-        </div>
-    </div>
-
   <script>
       $(document).ready(function () {
     	  let isAnswered = false; 
@@ -119,15 +120,16 @@
               spread: 150,
               gravity: 3.5,
               ticks : 70,
-              scalar : 3.0
+              scalar : 2.0
           });
       }
 
-      const setVh = () => {
-        document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
-            };
-            window.addEventListener('resize', setVh);
-            setVh();
+      const appHeight = () => {
+    const doc = document.documentElement
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+    }
+    window.addEventListener('resize', appHeight)
+    appHeight()
 
   </script>
 </body>
