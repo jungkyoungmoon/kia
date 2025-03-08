@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="language" content="ko">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    
+    <title>index</title>
+    
+    <!-- css -->
+    <link media="all" type="text/css" rel="stylesheet" href="css/font.css">
+    <link media="all" type="text/css" rel="stylesheet" href="css/common.css">
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <!-- 0. 표지 -->
+    <div id="cover" class="container visible">
+        <div class="contInner">
+            <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
+            <div class="contTit">
+                <p>기아 최초의 전동화 세단</p>
+                <h2>The Kia EV4를<br>찾아주세요</h2>
+            </div>
+            <button id="startButton">시작하기</button>
+            <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+        </div>
+    </div>
+
+    <!-- 2-1. 2단계 도입부 -->
+    <div id="step2-1" class="container">
+        <div class="contInner">
+            <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
+            <div class="contTit">
+                <p>2단계</p>
+                <h2>EV4 그림을<br>찾아주세요</h2>
+            </div>
+            <h1 id="timer">3</h1>
+            <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+        </div>
+    </div>
+
+    <!-- 2-2. 2단계 문제 -->
+    <div id="step2-2" class="container">
+        <div class="contInner">
+            <h1>The Kia EV4 <b>Exclusive Preview</b></h1>
+        <div class="contTit">
+
+        </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress"></div>
+            </div>
+            <div class="card-container">
+                <div class="card" data-correct="false"><img src="images/step2_img1.png"></div>
+                <div class="card true_img" data-correct="true">EV4<br>이미지</div>
+                <div class="card" data-correct="false"><img src="images/step2_img2.png"></div>
+                <div class="card" data-correct="false"><img src="images/step2_img3.png"></div>
+            </div>
+            <div class="bt_logo"><img src="images/logo.png" alt="로고"></div>
+        </div>
+    </div>
+
+  <script>
+      $(document).ready(function () {
+    	  let isAnswered = false; 
+    	    $('#startButton').click(function () {
+    	        goToStep('#step2-1');
+    	        let count = 3;
+    	        $('#timer').text(count);
+    	        let timer = setInterval(function () {
+    	            count--;
+    	            $('#timer').text(count);
+    	            if (count < 0) {
+    	                clearInterval(timer);
+    	                goToStep('#step2-2');
+    	                startProgressBar();
+    	            }
+    	        }, 1000);
+    	    });
+
+          $('.card').click(function () {
+        	  if (isAnswered) return;
+              let isCorrect = $(this).data('correct');
+              if (isCorrect) {
+            	  isAnswered = true;
+                  $(this).addClass('correct');
+                  	launchConfetti()
+                  	$('.progress-container').hide();
+                  	$('.contTit').html('<h2>2단계도 성공!</h2><h2>이제 3단계로 가볼까요?</h2>');                    
+              } else {
+                  $(this).addClass('wrong');
+                  setTimeout(() => $(this).removeClass('wrong'), 1000);
+              }
+          });
+      });
+
+      function startProgressBar() {
+          $('#progress').css({ width: '100%' }).animate({ width: '0%' }, 5000, function () {
+             
+          });
+      }
+
+      function goToStep(stepId) {
+          $('.container').removeClass('visible');
+          $(stepId).addClass('visible');          
+      }
+      
+      function launchConfetti() {
+          confetti({
+              particleCount: 60,
+              spread: 150,
+              gravity: 3.5,
+              ticks : 70,
+              scalar : 3.0
+          });
+      }
+
+      const setVh = () => {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+            };
+            window.addEventListener('resize', setVh);
+            setVh();
+
+  </script>
+</body>
+
+</html>
