@@ -13,9 +13,7 @@ html,
 body {
    padding: 0;
    margin: 0;
-   overflow: hidden;
    width: 100vw;
-   height: 100vh !important;
    height: var(--app-height);
 }
 
@@ -123,7 +121,7 @@ button{
 .contInner {
   width: 768px;
   margin: 0 auto;
-  /* min-height: 1700px; */
+  min-height: 1700px;
   padding: 113px 97px 108px;
   position: relative;
   margin-left: auto;
@@ -278,21 +276,25 @@ button{
 @media screen and (max-width: 768px) {
   .contInner {
     width: 100%;
-    min-height: 800px;
+    min-height: 640px;
     margin: 0 auto;
-    padding: 70px 20px 70px;
+    padding: 60px 20px 60px;
   }
 
   .contInner h1 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .contTit p {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   .contTit h2 {
-    font-size: 2.7rem;
+    font-size: 2rem;
+  }
+
+  #step2-2 .contTit h2  {
+    font-size: 1.5rem;
   }
 
   #startButton {
@@ -300,7 +302,7 @@ button{
     color: #fff;
     padding: 20px 0;
     width: 100%;
-    font-size: 3rem;
+    font-size: 2rem;
     border-radius: 20px;
     font-weight: 700;
     margin-top: 0;
@@ -312,11 +314,11 @@ button{
 
   #timer {
     background-color: #05141f;
-    font-size: 50px;
+    font-size: 40px;
     border-radius: 50%;
     color: #fff;
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -325,21 +327,20 @@ button{
   }
 
   .progress-container {
-    height: 28px;
+    height: 20px;
   }
-
 
   .card-container {
     gap: 20px;
-    margin-top: 110px;
-    margin-bottom: 90px;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
 
   .card {
     width: 100%;
-    height: 100%;
-    font-size: 3rem;
-    border-radius: 29px;
+    height: 150px;
+    font-size: 2rem;
+    border-radius: 20px;
   }
 
   .card img {
@@ -351,7 +352,7 @@ button{
   }
 
   #step2-2 .contTit {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
