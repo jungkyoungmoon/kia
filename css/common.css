@@ -360,8 +360,8 @@ button{
   .card img {
     border-radius: 20px;
     height: 280px;
-    transform: scale(1.2);
-    transform-origin: 145px center;
+    transform: scale(1.1);
+    transform-origin: 490px center;
     box-sizing: border-box;
   }
 
