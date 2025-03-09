@@ -87,20 +87,37 @@
     	        }, 1000);
     	    });
 
-          $('.card').click(function () {
-        	  if (isAnswered) return;
-              let isCorrect = $(this).data('correct');
-              if (isCorrect) {
-            	  isAnswered = true;
-                  $(this).addClass('correct');
-                  	launchConfetti()
-                  	$('.progress-container').hide();
-                  	$('.contTit').html('<h2>2단계도 성공!</h2><h2>이제 3단계로 가볼까요?</h2>');                    
-              } else {
-                  $(this).addClass('wrong');
-                  setTimeout(() => $(this).removeClass('wrong'), 1000);
-              }
-          });
+            $('.card').click(function () {
+                if (isAnswered) return;
+                let isCorrect = $(this).data('correct');
+                if (isCorrect) {
+                    isAnswered = true;
+                    $(this).addClass('correct');
+                    launchConfetti();
+                    $('.progress-container').hide();
+
+                    // 성공 메시지 추가 후 애니메이션 적용
+                    let $contTit = $('.contTit');
+                    $contTit.html('<h2 class="fade-in">2단계도 성공!</h2><h2 class="fade-in">이제 3단계로 가볼까요?</h2>');
+
+                    // 애니메이션 적용 (새로 추가된 요소에)
+                    $(".fade-in").css({
+                        display: "none",
+                        position: "relative",
+                        bottom: "-20px",
+                        opacity: 0
+                    }).each(function(index) {
+                        $(this).delay(index * 100).fadeIn(400).animate({
+                            bottom: "0",
+                            opacity: 1
+                        }, 600);
+                    });
+                } else {
+                    $(this).addClass('wrong');
+                    setTimeout(() => $(this).removeClass('wrong'), 1000);
+                }
+            });
+
       });
 
       function startProgressBar() {
@@ -124,12 +141,14 @@
           });
       }
 
-      const appHeight = () => {
-    const doc = document.documentElement
-    doc.style.setProperty('--app-height', `${window.innerHeight}px`)
-    }
-    window.addEventListener('resize', appHeight)
-    appHeight()
+      $(document).ready(function(){
+            $("#step2-2 .contTit h2").each(function(index){
+                $(this).delay(index * 500).animate({
+                    bottom: "0",
+                    opacity: 1
+                }, 600);
+            });
+        });
 
   </script>
 </body>

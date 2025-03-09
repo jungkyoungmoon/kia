@@ -156,6 +156,12 @@ button{
   font-weight: 700;
 }
 
+#step2-2 .contTit h2 {
+  display: none;
+  position: relative;
+  opacity: 0;
+}
+
 #startButton {
   background-color: #05141F;
   color: #fff;
@@ -276,7 +282,7 @@ button{
 @media screen and (max-width: 768px) {
   .contInner {
     width: 100%;
-    min-height: 640px;
+    min-height: 700px;
     margin: 0 auto;
     padding: 60px 20px 60px;
   }
@@ -309,7 +315,7 @@ button{
   }
 
   .bt_logo img {
-    width: 50%;
+    width: 45%;
   }
 
   #timer {
@@ -333,40 +339,32 @@ button{
   .card-container {
     gap: 20px;
     margin-top: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .card {
     width: 100%;
-    height: 150px;
+    height: 100%;
     font-size: 2rem;
     border-radius: 20px;
   }
 
   .card img {
-    border-radius: 39px;
-    height: 300px;
-    transform: scale(1.5);
+    border-radius: 20px;
+    height: 250px;
+    transform: none;
     transform-origin: center;
     box-sizing: border-box;
+    object-fit: cover;
+    width: 100%;
   }
 
   #step2-2 .contTit {
     margin-top: 20px;
-  }
-}
-
-@media screen and (max-width: 376px) {
-  .card img {
-    border-radius: 20px;
-    height: 280px;
-    transform: scale(1.1);
-    transform-origin: 490px center;
-    box-sizing: border-box;
+    height: 40px;
   }
 
   .card.correct {
     box-shadow: 0 0 0 5px #05141f;
   }
-
 }
